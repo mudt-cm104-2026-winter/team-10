@@ -4,8 +4,7 @@
 
 ## What this is
 
-<!-- One or two sentences: what does your app do, and who is it for?
-Right now it is the example "Things to bring". Replace it with your topic. -->
+A quiz about Albania and Kosovo. Players need to answer multiple-choice questions about history, geography and culture. The app saves each player's name and score and shows a high score list, sorted from best to worst.
 
 ## How to run it
 

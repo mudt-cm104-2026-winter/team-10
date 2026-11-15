@@ -22,6 +22,10 @@ Then open http://127.0.0.1:8000 in your browser. Stop it with `Ctrl+C`.
 The entries are kept in memory: after a restart the list is empty again.
 
 ## Team
+GitHub         Role
+1rza           Quiz questions
+ai8-tp         Quiz Page
+tea-7          Docs
 
 <!-- One row per person: GitHub username and what you mainly take care of.
 No real names: this repository is public. -->

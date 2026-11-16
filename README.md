@@ -1,6 +1,5 @@
-# Team project
+# Albania & Kosovo Quiz
 
-<!-- Replace the title with your project name. -->
 
 ## What this is
 
@@ -19,35 +18,32 @@ uvicorn app.main:app --reload
 
 Then open http://127.0.0.1:8000 in your browser. Stop it with `Ctrl+C`.
 
-The entries are kept in memory: after a restart the list is empty again.
+The quiz scores are kept in memory: after restarting the app, the high score list will be empty again.
 
 ## Team
-GitHub         Role
-1rza           Quiz questions
-ai8-tp         Quiz Page
-tea-7          Docs
-
-<!-- One row per person: GitHub username and what you mainly take care of.
-No real names: this repository is public. -->
 
 | GitHub | Role |
 |---|---|
+| 1rza | Quiz questions |
+| ai8-tp | Quiz page |
+| tea-7 | Documentation |
 
 ## How we work
 
-<!-- How your team uses Git. For example:
-- one branch per issue, named after it: `12-add-glossary`
-- every pull request needs one approval from another team member
-- the author merges after the approval
-- every pull request adds a line to CHANGELOG.md
--->
+- We create a GitHub issue for each task and attach it to one of our three epics.
+- Each task is completed on a separate branch linked to its issue.
+- We open pull requests describing what changed and why, using `Closes #n` to link the issue.
+- Another team member reviews the changes and leaves comments on specific lines of code when appropriate.
+- Pull requests require at least one approval before being merged into `main`.
+- We use our GitHub project board to track tasks as Todo, In progress, and Done.
 
 ## Sources
 
-<!-- One entry per source, added on the day you use it:
-- 2026-11-05: <title or link>, used for <what>
--->
+- 2026-11-16: `assessment-1-team-project.md`, used to check the Assessment 1 requirements.
+- 2026-11-16: `ten-steps-to-stage-1.md`, used to check the GitHub workflow and submission checklist.
 
 ## Use of AI
 
 2026-11-16: Claude (Anthropic), used for help with solving the merge conflict on the laptop. Checked against todays-lab.md and ten-steps-to-stage-1.md.
+- 2026-11-16: ChatGPT (OpenAI), used for guidance on Git commands, creating issues and pull requests, and updating the README. Checked by comparing the instructions with the course assessment checklist and verifying changes in VS Code and GitHub.
+- 2026-11-16: ChatGPT (OpenAI), used for suggestions on adapting the original HTML homepage into an Albania and Kosovo quiz introduction. Checked by reviewing the HTML changes in VS Code and the pull request diff on GitHub.

@@ -8,4 +8,4 @@ Example:
 
 ## Unreleased
 
-- Added initial changelog documentation for the Albania and Kosovo Quiz Interface.
+- Added the quiz homepage for the Albania and Kosovo Quiz Interface.

@@ -18,6 +18,8 @@ uvicorn app.main:app --reload
 
 Then open http://127.0.0.1:8000 in your browser. Stop it with `Ctrl+C`.
 
+The quiz scores are kept in memory: after restarting the app, the high score list will be empty again.
+
 ## Team
 
 | GitHub | Role |

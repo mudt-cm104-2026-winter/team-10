@@ -50,7 +50,4 @@ No real names: this repository is public. -->
 
 ## Use of AI
 
-<!-- One entry per use, added on the day you use it:
-- 2026-11-05: <tool>, used for <what>, checked by <how you checked the result>
-"none" is a valid entry.
--->
+2026-11-16: Claude (Anthropic), used for help with solving the merge conflict on the laptop. Checked against todays-lab.md and ten-steps-to-stage-1.md.

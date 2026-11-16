@@ -8,4 +8,4 @@ Example:
 
 ## Unreleased
 
-- Start from the repository template
+- Added the quiz homepage for the Albania and Kosovo Quiz Interface.

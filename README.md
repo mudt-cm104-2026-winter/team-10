@@ -47,3 +47,4 @@ The quiz scores are kept in memory: after restarting the app, the high score lis
 2026-11-16: Claude (Anthropic), used for help with solving the merge conflict on the laptop. Checked against todays-lab.md and ten-steps-to-stage-1.md.
 - 2026-11-16: ChatGPT (OpenAI), used for guidance on Git commands, creating issues and pull requests, and updating the README. Checked by comparing the instructions with the course assessment checklist and verifying changes in VS Code and GitHub.
 - 2026-11-16: ChatGPT (OpenAI), used for suggestions on adapting the original HTML homepage into an Albania and Kosovo quiz introduction. Checked by reviewing the HTML changes in VS Code and the pull request diff on GitHub.
+- 2026-11-17: ChatGPT (Open AI), used to help write the changelog entry (PR #18). Checked by reading it and comparing with the course checklist.

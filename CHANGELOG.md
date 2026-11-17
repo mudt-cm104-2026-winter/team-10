@@ -7,5 +7,6 @@ Example:
 -->
 
 ## Unreleased
+## Use of AI
 
 - Added the quiz homepage for the Albania and Kosovo Quiz Interface.

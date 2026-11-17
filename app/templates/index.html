@@ -1,17 +1,275 @@
+
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Albania &amp; Kosovo Quiz</title>
-  <link rel="stylesheet" href="/static/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Albania &amp; Kosovo Quiz</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
+
 <body>
-  <main>
-    <h1>Albania &amp; Kosovo Quiz</h1>
-    <p class="intro">Test your knowledge of Albania and Kosovo with our multiple-choice quiz!</p>
+    <main>
+        <h1>Albania &amp; Kosovo Quiz</h1>
 
+        <p class="intro">
+            Test your knowledge of Albania and Kosovo
+            with our multiple-choice quiz!
+        </p>
 
-  </main>
+        <section id="quiz">
+            <h2 id="question-number"></h2>
+            <p id="question-text"></p>
+
+            <div id="answers"></div>
+
+            <p id="feedback" aria-live="polite"></p>
+
+            <button id="next-button"
+                    onclick="nextQuestion()"
+                    style="display:none;">
+                Next Question
+            </button>
+        </section>
+
+        <section id="results" style="display:none;">
+            <h2>Quiz Complete!</h2>
+            <p id="final-score"></p>
+
+            <button onclick="restartQuiz()">
+                Play Again
+            </button>
+        </section>
+    </main>
+
+    <script>
+        const questions = [
+            {
+                question: "What is the capital of Albania?",
+                answers: [
+                    "Prizren",
+                    "Tirana",
+                    "Shkodra",
+                    "Durres"
+                ],
+                correct: 1
+            },
+            {
+                question: "What is the capital of Kosovo?",
+                answers: [
+                    "Peja",
+                    "Prizren",
+                    "Prishtina",
+                    "Gjakova"
+                ],
+                correct: 2
+            },
+            {
+                question: "In which year did Albania declare independence?",
+                answers: [
+                    "1912",
+                    "1920",
+                    "1945",
+                    "1991"
+                ],
+                correct: 0
+            },
+            {
+                question: "In which year did Kosovo declare independence?",
+                answers: [
+                    "1999",
+                    "2005",
+                    "2008",
+                    "2012"
+                ],
+                correct: 2
+            },
+            {
+                question: "Who is Albania's national hero?",
+                answers: [
+                    "Ismail Qemali",
+                    "Skanderbeg",
+                    "Isa Boletini",
+                    "Fan Noli"
+                ],
+                correct: 1
+            },
+            {
+                question: "Which sea borders Albania to the west?",
+                answers: [
+                    "Black Sea",
+                    "Baltic Sea",
+                    "Adriatic Sea",
+                    "Red Sea"
+                ],
+                correct: 2
+            },
+            {
+                question: "What is the currency used in Albania?",
+                answers: [
+                    "Euro",
+                    "Lek",
+                    "Dinar",
+                    "Pound"
+                ],
+                correct: 1
+            },
+            {
+                question: "What is the currency used in Kosovo?",
+                answers: [
+                    "Lek",
+                    "Dinar",
+                    "Euro",
+                    "Franc"
+                ],
+                correct: 2
+            },
+            {
+                question: "What are the two main dialect groups of Albanian?",
+                answers: [
+                    "Gheg and Tosk",
+                    "Northern and Southern Slavic",
+                    "Latin and Greek",
+                    "Standard and Ancient"
+                ],
+                correct: 0
+            },
+            {
+                question: "Which city is known as the City of a Thousand Windows?",
+                answers: [
+                    "Vlora",
+                    "Berat",
+                    "Tirana",
+                    "Korca"
+                ],
+                correct: 1
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let answered = false;
+
+        function showQuestion() {
+            answered = false;
+
+            const q = questions[currentQuestion];
+
+            document.getElementById("question-number")
+                .textContent =
+                "Question " + (currentQuestion + 1) +
+                " of " + questions.length;
+
+            document.getElementById("question-text")
+                .textContent = q.question;
+
+            document.getElementById("feedback")
+                .textContent = "";
+
+            document.getElementById("next-button")
+                .style.display = "none";
+
+            const answersDiv =
+                document.getElementById("answers");
+
+            answersDiv.innerHTML = "";
+
+            q.answers.forEach((answer, index) => {
+                const button = document.createElement("button");
+
+                button.textContent =
+                    String.fromCharCode(65 + index) +
+                    ". " + answer;
+
+                button.onclick = () => checkAnswer(index);
+
+                answersDiv.appendChild(button);
+            });
+        }
+
+        function checkAnswer(selected) {
+            if (answered) return;
+
+            answered = true;
+
+            const q = questions[currentQuestion];
+
+            const feedback =
+                document.getElementById("feedback");
+
+            if (selected === q.correct) {
+                score++;
+
+                feedback.textContent =
+                    "Correct! Well done!";
+
+                feedback.style.color = "green";
+            } else {
+                feedback.textContent =
+                    "Incorrect! The correct answer is " +
+                    q.answers[q.correct] + ".";
+
+                feedback.style.color = "red";
+            }
+
+            const buttons =
+                document.querySelectorAll("#answers button");
+
+            buttons.forEach(button => {
+                button.disabled = true;
+            });
+
+            const nextButton =
+                document.getElementById("next-button");
+
+            nextButton.style.display = "inline-block";
+
+            if (currentQuestion === questions.length - 1) {
+                nextButton.textContent = "See Results";
+            } else {
+                nextButton.textContent = "Next Question";
+            }
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+
+            if (currentQuestion < questions.length) {
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById("quiz")
+                .style.display = "none";
+
+            document.getElementById("results")
+                .style.display = "block";
+
+            document.getElementById("final-score")
+                .textContent =
+                "You scored " + score +
+                " out of " + questions.length + "!";
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            answered = false;
+
+            document.getElementById("quiz")
+                .style.display = "block";
+
+            document.getElementById("results")
+                .style.display = "none";
+
+            showQuestion();
+        }
+
+        showQuestion();
+    </script>
 </body>
 </html>
+
